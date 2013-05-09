@@ -10,5 +10,5 @@
 #define COCOAPODS_POD_AVAILABLE_BMExtendablePageController
 #define COCOAPODS_VERSION_MAJOR_BMExtendablePageController 0
 #define COCOAPODS_VERSION_MINOR_BMExtendablePageController 1
-#define COCOAPODS_VERSION_PATCH_BMExtendablePageController 0
+#define COCOAPODS_VERSION_PATCH_BMExtendablePageController 1
 

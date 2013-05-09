@@ -30,7 +30,11 @@ Use cocoapods and put the following dependency to your Podfile:
 pod 'BMExtendablePageController'
 ``` 
 
-## Example Usage
+## Example Usage                        
+
+The way how you provide content for BMExtandablePageController is identical to the *Bookmode* discussed in the *NSPageController* [Reference](http://developer.apple.com/library/Mac/#documentation/AppKit/Reference/NSPageController_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40012265-CH1-SW21)                              
+
+See also [iOS Sample Project](https://github.com/elchbenny/BMExtPageController-iOS-Example)
 
 ### 01. Create Instance
 Create an instance of *BMExtendablePageController*  by dragging an *UIView/NSView* in your storyboard/xib or create one in code. Anyway, you need to provide a **delegate** implementing the _BMExtendablePageControllerDelegate_ protocol and assign an *NSArray* to the _arrangedObjects_ property containing data for each page.
@@ -103,12 +107,21 @@ and now update *_currentTransition* whenever needed - e. g. on *scrollViewDidScr
 ``` objective-c
 [_currentTransition updateTransitionWithValue:normalizedIndex];	// -1.0 < normalizedIndex < +1.0
 ```	
+  
+##Available TRANSITIONS
+- Horizontal Flip Transition, which is identical to the NSPageControllers *NSPageControllerTransitionStyleHorizontalStrip*
+- Continuous Horizontal Transition, which is the same as the Horizontal Flip Transition, but you can fully control the progress of the transition (e.g. by attaching drag gesture updates)
+- Fade Transition
+
+
+##Contribution
+Please feel invited to contribute to this projects. Especially, I would be happy to have some more fancy transition styles available. 
 
 ##LICENSE
 
 *MIT License*
 
-Copyright (C) 2012 by Spaceman Labs
+Copyright (C) 2013 by Benjamin Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

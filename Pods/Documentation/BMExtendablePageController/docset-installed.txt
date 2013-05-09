@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/Benjamin/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.bmextendablepagecontroller.BMExtendablePageController-0.1.1.docset
+Time: 2013-05-09 15:36:11 +0000

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/BMExtendablePageController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/BMExtendablePageController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/setDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (unsafe_unretained) IBOutlet id&lt;BMExtendablePageControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BMExtendablePageController/delegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (unsafe_unretained) IBOutlet id&lt;BMExtendablePageControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/setArrangedObjects:</TokenIdentifier>
+			<Abstract type="html">Array of all displayed objects (after sorting and potentially filtering by you). The delegate will be asked for snapshots as they are needed.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) NSArray *arrangedObjects</Declaration>
+			
+			
+			<Anchor>//api/name/arrangedObjects</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BMExtendablePageController/arrangedObjects</TokenIdentifier>
+			<Abstract type="html">Array of all displayed objects (after sorting and potentially filtering by you). The delegate will be asked for snapshots as they are needed.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) NSArray *arrangedObjects</Declaration>
+			
+			
+			<Anchor>//api/name/arrangedObjects</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/setSelectedIndex:</TokenIdentifier>
+			<Abstract type="html">The index into the arrangedObjects that is being displayed.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) NSInteger selectedIndex</Declaration>
+			
+			
+			<Anchor>//api/name/selectedIndex</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BMExtendablePageController/selectedIndex</TokenIdentifier>
+			<Abstract type="html">The index into the arrangedObjects that is being displayed.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) NSInteger selectedIndex</Declaration>
+			
+			
+			<Anchor>//api/name/selectedIndex</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/setSelectedViewController:</TokenIdentifier>
+			<Abstract type="html">The viewController associated with the selected arrangedObject. May be nil if delegate is not supplying viewControllers.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, readonly) VIEW_CONTROLLER *selectedViewController</Declaration>
+			
+			
+			<Anchor>//api/name/selectedViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BMExtendablePageController/selectedViewController</TokenIdentifier>
+			<Abstract type="html">The viewController associated with the selected arrangedObject. May be nil if delegate is not supplying viewControllers.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, readonly) VIEW_CONTROLLER *selectedViewController</Declaration>
+			
+			
+			<Anchor>//api/name/selectedViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/setLoggingEnabled:</TokenIdentifier>
+			<Abstract type="html">Set loggingEnabled to TRUE (default is FALSE) if you like to get information about the pageControllers&apos; cache and reload mechanism.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) Boolean loggingEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/loggingEnabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BMExtendablePageController/loggingEnabled</TokenIdentifier>
+			<Abstract type="html">Set loggingEnabled to TRUE (default is FALSE) if you like to get information about the pageControllers&apos; cache and reload mechanism.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) Boolean loggingEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/loggingEnabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/initWithDelegate:</TokenIdentifier>
+			<Abstract type="html">Convenience init method as a delegate is required for any use of the page controller.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithDelegate:(id&lt;BMExtendablePageControllerDelegate&gt;)aDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/initWithDelegate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/initWithDelegate:arrangedObjects:completed:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithDelegate:(id&lt;BMExtendablePageControllerDelegate&gt;)aDelegate arrangedObjects:(NSArray *)arrangedObjects completed:(void ( ^ ) ( ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/initWithDelegate:arrangedObjects:completed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/setSelectedIndex:withTransition:</TokenIdentifier>
+			<Abstract type="html">jump to any index within the bounds of provided pages using a transition class.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setSelectedIndex:(NSInteger)selectedIndex withTransition:(id&lt;BMExtendablePageTransition&gt;)transition</Declaration>
+			
+			
+			<Anchor>//api/name/setSelectedIndex:withTransition:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/nextPageWithTransitionStyle:</TokenIdentifier>
+			<Abstract type="html">This is a short hand for setSelectedIndex with an incremented value.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)nextPageWithTransitionStyle:(id&lt;BMExtendablePageTransition&gt;)transition</Declaration>
+			
+			
+			<Anchor>//api/name/nextPageWithTransitionStyle:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/prevPageWithTransitionStyle:</TokenIdentifier>
+			<Abstract type="html">This is a short hand for setSelectedIndex with a decremented value.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)prevPageWithTransitionStyle:(id&lt;BMExtendablePageTransition&gt;)transition</Declaration>
+			
+			
+			<Anchor>//api/name/prevPageWithTransitionStyle:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/setArrangedObjects:completed:</TokenIdentifier>
+			<Abstract type="html">set arranged objects works asychronsiously, so you can provide a completion block</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setArrangedObjects:(NSArray *)arrangedObjects completed:(void ( ^ ) ( ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/setArrangedObjects:completed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BMExtendablePageController/attachContinuouseTransition:</TokenIdentifier>
+			<Abstract type="html">Use this method to attach a continuouse transition to the page controller. Use the returning reference to push subsequent updates to this transition and call finishTransition: or cancelTransition: to complete the processs.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (id&lt;BMExtendableContinuousePageTransition&gt;)attachContinuouseTransition:(id&lt;BMExtendableContinuousePageTransition&gt;)transition</Declaration>
+			
+			
+			<Anchor>//api/name/attachContinuouseTransition:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

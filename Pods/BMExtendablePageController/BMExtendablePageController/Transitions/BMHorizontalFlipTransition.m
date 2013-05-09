@@ -34,13 +34,18 @@
     
     // animate transition
 #if TARGET_OS_IPHONE
+    [containerView layoutIfNeeded];    
 
     [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
                          [currentAlignmentConstraint setConstant:destOffset];
+                         [containerView layoutIfNeeded];
                          
                      } completion:^(BOOL finished) {
+                         
+                         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
+                         [NSLayoutConstraint fillSuperView:nextView];                         
                          
                          completion();
                      }];

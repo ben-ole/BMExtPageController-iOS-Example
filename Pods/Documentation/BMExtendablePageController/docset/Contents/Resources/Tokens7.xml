@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/BMExtendablePageControllerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/BMExtendablePageControllerDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BMExtendablePageControllerDelegate/pageController:identifierForIndex:</TokenIdentifier>
+			<Abstract type="html">Return the identifier of the view controller that owns a view to display the object. If NSPageController does not have an unused viewController for this identifier, the you will be asked to create one via pageController:viewControllerForIdentifier.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)pageController:(BMExtendablePageController *)pageController identifierForIndex:(int)index</Declaration>
+			
+			
+			<Anchor>//api/name/pageController:identifierForIndex:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BMExtendablePageControllerDelegate/pageController:viewControllerForIdentifier:</TokenIdentifier>
+			<Abstract type="html">NSPageController will cache as many viewControllers and views as necessary to maintain performance. This method is called whenever another instance is required. Note: The viewController may become the selectedViewController after a transition if necessary.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (VIEW_CONTROLLER *)pageController:(BMExtendablePageController *)pageController viewControllerForIdentifier:(NSString *)identifier</Declaration>
+			
+			
+			<Anchor>//api/name/pageController:viewControllerForIdentifier:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BMExtendablePageControllerDelegate/pageController:frameForObject:</TokenIdentifier>
+			<Abstract type="html">You only need to implement this if the view frame can differ between arrangedObjects. This method must return immediately. Avoid file, network or any potentially blocking or lengthy work to provide an answer. If this method is not implemented, all arrangedObjects are assumed to have the same frame as the current selectedViewController.view or the bounds of view when selectedViewController is nil.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (CGRect)pageController:(BMExtendablePageController *)pageController frameForObject:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/pageController:frameForObject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BMExtendablePageControllerDelegate/pageController:prepareViewController:withObject:</TokenIdentifier>
+			<Abstract type="html">Prepare the viewController and view for drawing. Setup data sources and perform layout. Note: this method is called on the main thread and should return immediately. The view will be asked to draw on a background thread and must support background drawing. If this method is not implemented, then viewController&apos;s representedObject is set to the representedObject.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)pageController:(BMExtendablePageController *)pageController prepareViewController:(VIEW_CONTROLLER *)viewController withObject:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/pageController:prepareViewController:withObject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BMExtendablePageControllerDelegate/pageController:didTransitionToObject:</TokenIdentifier>
+			<Abstract type="html">This message is sent when any page transition is completed.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)pageController:(BMExtendablePageController *)pageController didTransitionToObject:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/pageController:didTransitionToObject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BMExtendablePageControllerDelegate/pageControllerWillStartLiveTransition:</TokenIdentifier>
+			<Abstract type="html">This message is sent when the user begins a transition wither via swipe gesture of one of the navigation IBAction methods.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)pageControllerWillStartLiveTransition:(BMExtendablePageController *)pageController</Declaration>
+			
+			
+			<Anchor>//api/name/pageControllerWillStartLiveTransition:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BMExtendablePageControllerDelegate/pageControllerDidEndLiveTransition:</TokenIdentifier>
+			<Abstract type="html">This message is sent when a transition animation completes either via swipe gesture or one of the navigation IBAction methods. Your content view is still hidden and you must call -completeTransition; on pageController when your content is ready to show. If completed successfully, a pageController:didTransitionToRepresentedObject: will already have been sent.</Abstract>
+			<DeclaredIn>BMExtendablePageController.h</DeclaredIn>			
+			
+			<Declaration>- (void)pageControllerDidEndLiveTransition:(BMExtendablePageController *)pageController</Declaration>
+			
+			
+			<Anchor>//api/name/pageControllerDidEndLiveTransition:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

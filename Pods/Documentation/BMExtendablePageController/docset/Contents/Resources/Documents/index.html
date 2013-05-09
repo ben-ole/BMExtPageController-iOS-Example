@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>BMExtendablePageController 0.1.1 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">BMExtendablePageController 0.1.1 </a></h1>
+				<a id="developerHome" href="index.html">Benjamin Müller</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BMExtendablePageController 0.1.1 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BMExtendablePageController 0.1.1 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1><a href="Classes/BMExtendablePageController.html">BMExtendablePageController</a></h1>
+
+<p>A replacement for <em>UIPageController</em> / <em>NSPageController</em>, because we need <strong>custom transitions</strong>!</p>
+
+<p>BMExtPageController is a <strong>drop in &ndash; replacement</strong> and mirrors almost all functionalities found in <em>UIPageController</em> so if you’ve been starting a project already and you feel limited with default transition styles and behavior offered &ndash; give BMExtPageController a try.</p>
+
+<h2>Features offered</h2>
+
+<ul>
+<li>iOS and OSX ready</li>
+<li>Two kinds of transitions offered:
+
+<ul>
+<li>Basic transition</li>
+<li>Continuous transitions &ndash; e. g. attach a panning gesture to take control over the transition timing</li>
+</ul>
+</li>
+<li>Custom transitions
+
+<ul>
+<li>use one of the built in transitions, which currently support:
+
+<ul>
+<li><em>Basic transition</em>: Fading</li>
+<li><em>Basic transition</em>: Horizontal Flipping</li>
+<li><em>Continuous transition</em>: Horizontal <em>Paged</em> Scrolling</li>
+</ul>
+</li>
+<li>easily extend or create from scratch adopting one of the required protocols
+
+<ul>
+<li><a href="Protocols/BMExtendablePageTransition.html">BMExtendablePageTransition</a></li>
+<li><a href="Protocols/BMExtendableContinuousePageTransition.html">BMExtendableContinuousePageTransition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Performance oriented implementation
+
+<ul>
+<li>Automatic page preloading</li>
+<li>ViewController recycling</li>
+<li>Multithreading using GrandDispatchCentral</li>
+</ul>
+</li>
+<li>No further dependencies</li>
+</ul>
+
+
+<h2>Project Integration</h2>
+
+<p>Use cocoapods and put the following dependency to your Podfile:</p>
+
+<p><code>ruby
+pod 'BMExtendablePageController'
+</code></p>
+
+<h2>Example Usage</h2>
+
+<p>The way how you provide content for BMExtandablePageController is identical to the <em>Bookmode</em> discussed in the <em>NSPageController</em> <a href="http://developer.apple.com/library/Mac/#documentation/AppKit/Reference/NSPageController_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40012265-CH1-SW21">Reference</a></p>
+
+<p>See also <a href="https://github.com/elchbenny/BMExtPageController-iOS-Example">iOS Sample Project</a></p>
+
+<h3>01. Create Instance</h3>
+
+<p>Create an instance of <em><a href="Classes/BMExtendablePageController.html">BMExtendablePageController</a></em>  by dragging an <em>UIView/NSView</em> in your storyboard/xib or create one in code. Anyway, you need to provide a <strong>delegate</strong> implementing the <em>BMExtendablePageControllerDelegate</em> protocol and assign an <em>NSArray</em> to the <em>arrangedObjects</em> property containing data for each page.</p>
+
+<p>``` objective-c   <br/>
+<a href="Classes/BMExtendablePageController.html">BMExtendablePageController</a> *pageController = [[BMExtendablePageController alloc]</p>
+
+<pre><code>                                           initWithDelegate:self    
+                                            arrangedObjects:@[@„page01“,@„page02“,@„page03“] 
+                                                  completed:^{
+                                                    // page load completed - do what ever you want.
+                                                  }];
+</code></pre>
+
+<p>```</p>
+
+<h3>02. Delegate Implementation</h3>
+
+<p>``` objective-c   <br/>
+// return identifiers ( to support recycling )
+&ndash;(NSString <em>)pageController:(<a href="Classes/BMExtendablePageController.html">BMExtendablePageController</a> </em>)pageController identifierForIndex:(int)index{</p>
+
+<pre><code>if (index == 0) {
+    return @„VIEW_CONTROLLER_1“;
+}else if(index == 1){
+    return @„VIEW_CONTROLLER_2“;
+}else{
+    return @„VIEW_CONTROLLER_3“;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>// return new instances depending on identifier
+&ndash;(UIViewController <em>)pageController:(<a href="Classes/BMExtendablePageController.html">BMExtendablePageController</a> </em>)pageController viewControllerForIdentifier:(NSString *)identifier{</p>
+
+<pre><code>if([identifier isEqualToString:VIEW_CONTROLLER_1])
+    return [[ViewController01 alloc] init];
+else if([identifier isEqualToString:VIEW_CONTROLLER_2])
+    return [[ViewController02 alloc] init];
+else
+    return [[ViewController03 alloc] init];
+</code></pre>
+
+<p>}</p>
+
+<p>&ndash;(void)pageController:(<a href="Classes/BMExtendablePageController.html">BMExtendablePageController</a> <em>)pageController   <br/>
+prepareViewController:(UIViewController </em>)viewController withObject:(id)object{</p>
+
+<pre><code>// update the (eventually recycled)  view controller with page specific data object
+viewController.data = object;    
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>03. Perform Transition</h3>
+
+<p>In case you want a <strong>basic transition</strong> you simply call
+``` objective-c</p>
+
+<p>// next page
+[_pageController nextPageWithTransitionStyle:[BMHorizontalFlipTransition transition]];</p>
+
+<p>// or previous page
+[_pageController prevPageWithTransitionStyle:[BMHorizontalFlipTransition transition]];</p>
+
+<p>// or any page
+[_pageController setSelectedIndex:104 withTransition:[BMFadeTransition transition]];     <br/>
+```
+<em>Please note: you are responsible to stay within your index boundaries.</em></p>
+
+<p>Or attach a <strong>continuous transition</strong> to the page controller (e.g. on touch down)
+<code>objective-c     
+_currentTransition = [_pageController attachContinuouseTransition:  [BMHorizontalCTransition transition]];
+</code>
+and now update <em>_currentTransition</em> whenever needed &ndash; e. g. on <em>scrollViewDidScroll:</em></p>
+
+<p><code>objective-c
+[_currentTransition updateTransitionWithValue:normalizedIndex]; // -1.0 &lt; normalizedIndex &lt; +1.0
+</code></p>
+
+<h2>Available TRANSITIONS</h2>
+
+<ul>
+<li>Horizontal Flip Transition, which is identical to the NSPageControllers <em>NSPageControllerTransitionStyleHorizontalStrip</em></li>
+<li>Continuous Horizontal Transition, which is the same as the Horizontal Flip Transition, but you can fully control the progress of the transition (e.g. by attaching drag gesture updates)</li>
+<li>Fade Transition</li>
+</ul>
+
+
+<h2>Contribution</h2>
+
+<p>Please feel invited to contribute to this projects. Especially, I would be happy to have some more fancy transition styles available.</p>
+
+<h2>LICENSE</h2>
+
+<p><em>MIT License</em></p>
+
+<p>Copyright &copy; 2013 by Benjamin Müller</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/BMExtendablePageController.html">BMExtendablePageController</a></li>
+							
+							<li><a href="Classes/BMFadeTransition.html">BMFadeTransition</a></li>
+							
+							<li><a href="Classes/BMHorizontalCTransition.html">BMHorizontalCTransition</a></li>
+							
+							<li><a href="Classes/BMHorizontalFlipTransition.html">BMHorizontalFlipTransition</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/BMExtendableContinuousePageTransition.html">BMExtendableContinuousePageTransition</a></li>
+							
+							<li><a href="Protocols/BMExtendablePageControllerDelegate.html">BMExtendablePageControllerDelegate</a></li>
+							
+							<li><a href="Protocols/BMExtendablePageTransition.html">BMExtendablePageTransition</a></li>
+							
+						</ul>
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/NSLayoutConstraint+PlacementHelper.html">NSLayoutConstraint(PlacementHelper)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Benjamin Müller. All rights reserved. (Last updated: 2013-05-09)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>
