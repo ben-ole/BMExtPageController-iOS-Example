@@ -16,6 +16,12 @@
 		437FDA2C1739775500ACAFD0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 437FDA2B1739775500ACAFD0 /* Default.png */; };
 		437FDA2E1739775500ACAFD0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 437FDA2D1739775500ACAFD0 /* Default@2x.png */; };
 		437FDA301739775500ACAFD0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 437FDA2F1739775500ACAFD0 /* Default-568h@2x.png */; };
+		437FDA371739779700ACAFD0 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 437FDA361739779700ACAFD0 /* Storyboard.storyboard */; };
+		43C96568173A9EA300D9C59A /* BMTest01ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C96567173A9EA300D9C59A /* BMTest01ViewController.m */; };
+		43C9656B173A9F3A00D9C59A /* BMTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C9656A173A9F3A00D9C59A /* BMTestTableViewController.m */; };
+		43C9656E173A9FDB00D9C59A /* BMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C9656D173A9FDB00D9C59A /* BMMainViewController.m */; };
+		43C96571173AA48000D9C59A /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C96570173AA48000D9C59A /* UIColor+Random.m */; };
+		88D9A48210664201970BDA83 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 793FADE4E2434A61B928D5B8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,17 @@
 		437FDA2B1739775500ACAFD0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		437FDA2D1739775500ACAFD0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		437FDA2F1739775500ACAFD0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		437FDA361739779700ACAFD0 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		43C96566173A9EA300D9C59A /* BMTest01ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTest01ViewController.h; sourceTree = "<group>"; };
+		43C96567173A9EA300D9C59A /* BMTest01ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTest01ViewController.m; sourceTree = "<group>"; };
+		43C96569173A9F3A00D9C59A /* BMTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTestTableViewController.h; sourceTree = "<group>"; };
+		43C9656A173A9F3A00D9C59A /* BMTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTestTableViewController.m; sourceTree = "<group>"; };
+		43C9656C173A9FDB00D9C59A /* BMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMainViewController.h; sourceTree = "<group>"; };
+		43C9656D173A9FDB00D9C59A /* BMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMainViewController.m; sourceTree = "<group>"; };
+		43C9656F173AA48000D9C59A /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
+		43C96570173AA48000D9C59A /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
+		793FADE4E2434A61B928D5B8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0AB257A5CC04C82ACCE4781 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +59,7 @@
 				437FDA1A1739775500ACAFD0 /* UIKit.framework in Frameworks */,
 				437FDA1C1739775500ACAFD0 /* Foundation.framework in Frameworks */,
 				437FDA1E1739775500ACAFD0 /* CoreGraphics.framework in Frameworks */,
+				88D9A48210664201970BDA83 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +72,7 @@
 				437FDA1F1739775500ACAFD0 /* BMExtPageControllerExampleIOS */,
 				437FDA181739775500ACAFD0 /* Frameworks */,
 				437FDA171739775500ACAFD0 /* Products */,
+				A0AB257A5CC04C82ACCE4781 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +90,7 @@
 				437FDA191739775500ACAFD0 /* UIKit.framework */,
 				437FDA1B1739775500ACAFD0 /* Foundation.framework */,
 				437FDA1D1739775500ACAFD0 /* CoreGraphics.framework */,
+				793FADE4E2434A61B928D5B8 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -78,8 +98,10 @@
 		437FDA1F1739775500ACAFD0 /* BMExtPageControllerExampleIOS */ = {
 			isa = PBXGroup;
 			children = (
+				43C96565173A9E6300D9C59A /* ViewController */,
 				437FDA281739775500ACAFD0 /* BMAppDelegate.h */,
 				437FDA291739775500ACAFD0 /* BMAppDelegate.m */,
+				437FDA361739779700ACAFD0 /* Storyboard.storyboard */,
 				437FDA201739775500ACAFD0 /* Supporting Files */,
 			);
 			path = BMExtPageControllerExampleIOS;
@@ -95,8 +117,23 @@
 				437FDA2B1739775500ACAFD0 /* Default.png */,
 				437FDA2D1739775500ACAFD0 /* Default@2x.png */,
 				437FDA2F1739775500ACAFD0 /* Default-568h@2x.png */,
+				43C9656F173AA48000D9C59A /* UIColor+Random.h */,
+				43C96570173AA48000D9C59A /* UIColor+Random.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43C96565173A9E6300D9C59A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				43C9656C173A9FDB00D9C59A /* BMMainViewController.h */,
+				43C9656D173A9FDB00D9C59A /* BMMainViewController.m */,
+				43C96566173A9EA300D9C59A /* BMTest01ViewController.h */,
+				43C96567173A9EA300D9C59A /* BMTest01ViewController.m */,
+				43C96569173A9F3A00D9C59A /* BMTestTableViewController.h */,
+				43C9656A173A9F3A00D9C59A /* BMTestTableViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 437FDA331739775500ACAFD0 /* Build configuration list for PBXNativeTarget "BMExtPageControllerExampleIOS" */;
 			buildPhases = (
+				A255DA21EA11428B9DAF722D /* Check Pods Manifest.lock */,
 				437FDA121739775500ACAFD0 /* Sources */,
 				437FDA131739775500ACAFD0 /* Frameworks */,
 				437FDA141739775500ACAFD0 /* Resources */,
+				49B65B499F264F658C66106F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,10 +194,42 @@
 				437FDA2C1739775500ACAFD0 /* Default.png in Resources */,
 				437FDA2E1739775500ACAFD0 /* Default@2x.png in Resources */,
 				437FDA301739775500ACAFD0 /* Default-568h@2x.png in Resources */,
+				437FDA371739779700ACAFD0 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49B65B499F264F658C66106F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		A255DA21EA11428B9DAF722D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		437FDA121739775500ACAFD0 /* Sources */ = {
@@ -167,6 +238,10 @@
 			files = (
 				437FDA261739775500ACAFD0 /* main.m in Sources */,
 				437FDA2A1739775500ACAFD0 /* BMAppDelegate.m in Sources */,
+				43C96568173A9EA300D9C59A /* BMTest01ViewController.m in Sources */,
+				43C9656B173A9F3A00D9C59A /* BMTestTableViewController.m in Sources */,
+				43C9656E173A9FDB00D9C59A /* BMMainViewController.m in Sources */,
+				43C96571173AA48000D9C59A /* UIColor+Random.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +317,7 @@
 		};
 		437FDA341739775500ACAFD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0AB257A5CC04C82ACCE4781 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMExtPageControllerExampleIOS/BMExtPageControllerExampleIOS-Prefix.pch";
@@ -253,6 +329,7 @@
 		};
 		437FDA351739775500ACAFD0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0AB257A5CC04C82ACCE4781 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BMExtPageControllerExampleIOS/BMExtPageControllerExampleIOS-Prefix.pch";
@@ -281,6 +358,7 @@
 				437FDA351739775500ACAFD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
