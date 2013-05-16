@@ -1,0 +1,10 @@
+PODS:
+  - BMExtendablePageController (0.1.1)
+
+DEPENDENCIES:
+  - BMExtendablePageController (= 0.1.1)
+
+SPEC CHECKSUMS:
+  BMExtendablePageController: 866fc9c486db5c9c311aed652642638405c22177
+
+COCOAPODS: 0.19.1

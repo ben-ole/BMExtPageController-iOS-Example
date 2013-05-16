@@ -2,9 +2,13 @@ PODS:
   - BMExtendablePageController (0.1.1)
 
 DEPENDENCIES:
-  - BMExtendablePageController (= 0.1.1)
+  - BMExtendablePageController (from `../BMExtendablePageController/`)
+
+EXTERNAL SOURCES:
+  BMExtendablePageController:
+    :path: ../BMExtendablePageController/
 
 SPEC CHECKSUMS:
-  BMExtendablePageController: 866fc9c486db5c9c311aed652642638405c22177
+  BMExtendablePageController: 1aad39f8b60c458f0f13d4a6640c2dafe8e669ff
 
 COCOAPODS: 0.19.1
