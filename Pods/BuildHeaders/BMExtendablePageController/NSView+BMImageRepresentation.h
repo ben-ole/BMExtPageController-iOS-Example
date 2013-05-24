@@ -1,0 +1,1 @@
+../../BMExtendablePageController/BMExtendablePageController/NSView+BMImageRepresentation.h

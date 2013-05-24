@@ -8,8 +8,12 @@
 
 #import "BMHorizontalFlipTransition.h"
 #import "NSLayoutConstraint+PlacementHelper.h"
+#import "CAAnimation+Blocks.h"
+#import "NSView+BMImageRepresentation.h"
 
-@implementation BMHorizontalFlipTransition
+@implementation BMHorizontalFlipTransition{
+
+}
 
 +(id<BMExtendablePageTransition>)transition{
     return [[BMHorizontalFlipTransition alloc] init];
@@ -21,51 +25,61 @@
                 toNextView:(VIEW *)nextView
            onContainerView:(VIEW *)containerView
             withCompletion:(void (^)())completion{
-
-    // ensure currentView fills superview
-    NSLayoutConstraint* currentAlignmentConstraint = [NSLayoutConstraint fillSuperView:currentView];
     
-    // bound next view to current view
-    [NSLayoutConstraint stickView:nextView
-                    nextToSibling:currentView
-                        direction:(toIdx > fromIdx ? BM_LAYOUT_DIRECTION_RIGHT : BM_LAYOUT_DIRECTION_LEFT)];
     
     float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? -1. : 1.);
     
-    // animate transition
-#if TARGET_OS_IPHONE
-    [containerView layoutIfNeeded];    
+    [NSLayoutConstraint fillSuperView:nextView];
+    
+    CGImageRef currImg = [currentView imageRepresentation];
+    
+    CGImageRef nextImg = [nextView imageRepresentation];
+    
+    // create animation layer
+    CALayer* animationLayer = [CALayer layer];
+    animationLayer.frame = currentView.bounds;
+    
+    // add a layer for current view to animationLayer
+    CALayer* currentLayer = [CALayer layer];
+    [currentLayer setContents:(__bridge id)(currImg)];
+    currentLayer.frame = currentView.bounds;
+    [animationLayer addSublayer:currentLayer];
+    
+    // add a layer for next view to animationLayer
+    CALayer* nextLayer = [CALayer layer];
+    [nextLayer setContents:(__bridge id)(nextImg)];
+    nextLayer.frame = CGRectOffset(nextView.bounds, -destOffset, 0.);
+    [animationLayer addSublayer:nextLayer];
 
-    [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         
-                         [currentAlignmentConstraint setConstant:destOffset];
-                         [containerView layoutIfNeeded];
-                         
-                     } completion:^(BOOL finished) {
-                         
-                         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
-                         [NSLayoutConstraint fillSuperView:nextView];                         
-                         
-                         completion();
-                     }];
-#else
-    [[NSAnimationContext currentContext] setDuration:duration];
-    [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        
-        [[currentAlignmentConstraint animator] setConstant:destOffset];
-        
-    } completionHandler:^{
-        
-        [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
-        [NSLayoutConstraint fillSuperView:nextView];
-        
+    // add layer to container
+    #if !TARGET_OS_IPHONE
+        animationLayer.frame = CGRectOffset(currentView.bounds, 0., -3.);   // strange offset
+        [containerView setWantsLayer:YES];
+    #endif
+    
+    [containerView.layer addSublayer:animationLayer];
+    
+    // do actual scene change
+    [NSLayoutConstraint removeConstraintsFromSuperView:currentView];    
+    
+    // animate transition
+    CABasicAnimation* slideAnimation = [CABasicAnimation animationWithKeyPath: @"transform.translation.x"];
+    slideAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+    slideAnimation.toValue = [NSNumber numberWithFloat:destOffset];
+    slideAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    slideAnimation.duration = duration;
+    slideAnimation.repeatCount = 0;
+    slideAnimation.removedOnCompletion = NO;
+    slideAnimation.fillMode = kCAFillModeForwards;
+
+    [slideAnimation setCompletion:^(BOOL finished) {
+        [animationLayer removeFromSuperlayer];
         completion();
     }];
-#endif
+    [animationLayer addAnimation:slideAnimation forKey:@"transform.translation.x"];
+
 }
 
-
-
 @end
+
+

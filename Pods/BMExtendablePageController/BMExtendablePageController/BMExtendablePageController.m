@@ -8,6 +8,7 @@
 
 #import "BMExtendablePageController.h"
 #import "NSLayoutConstraint+PlacementHelper.h"
+#import "NSView+BMImageRepresentation.h"
 
 @implementation BMExtendablePageController{
     NSMutableArray* _pages;
@@ -79,6 +80,8 @@
     
     [_pages removeAllObjects];
     
+    _selectedIndex = 0;
+    
     for (int i=0; i<_arrangedObjects.count; i++) {
         [_pages addObject:[NSNull null]];
     }
@@ -127,12 +130,16 @@
                                                                 toNextView:nextView
                                                            onContainerView:self
                                                             withCompletion:^(){
+                                                                
                                                                 currentView.frame = [self parkingPosition];
                                                                 
                                                                 _selectedIndex = selectedIndex;
                                                                 _selectedViewController = [_pages objectAtIndex:_selectedIndex];
                                                                 _temporaryDisabled = FALSE;
                                                                 [self updatePageCache:nil];
+                                                                
+                                                                if(_delegate && [_delegate respondsToSelector:@selector(pageController:didTransitionToObject:)])
+                                                                    [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
                                                             }];
 
 }
@@ -173,20 +180,18 @@
                                     }else if(nowActiveView == prevView){
                                         _selectedIndex--;
                                     }
+                                     _selectedViewController = [_pages objectAtIndex:_selectedIndex];
                                     
                                     [self updatePageCache:nil];
+                                    
+                                    if(_delegate && [_delegate respondsToSelector:@selector(pageController:didTransitionToObject:)])
+                                        [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
     }];
     
     return transition;
 }
 
 #pragma mark - PROPERTIES
--(void)setBounds:(RECT)aRect{
-    [super setBounds:aRect];
-    
-    _selectedViewController.view.frame = self.bounds;
-}
-
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
     [self setSelectedIndex:selectedIndex withTransition:nil];
 }
@@ -202,6 +207,7 @@
 
 #pragma mark - HELPER
 -(void)updatePageCache:(void (^)())complete{
+    
     // first unload exisiting pages to possibly free recyclable controllers
     // second load newly required pages
     
@@ -252,6 +258,8 @@
 }
 
 -(void)loadPageWithIndex:(int)index{
+    VIEW_CONTROLLER* pageCtrl;
+    
     // check if already created
     if (![[_pages objectAtIndex:index] isKindOfClass:[NSNull class]])
         return;
@@ -259,11 +267,12 @@
     if(_loggingEnabled) NSLog(@"load page with idx: %i",index);
 
     // get a viewcontroller for index
-    VIEW_CONTROLLER* pageCtrl = [self requireViewControllerForIndex:index];
+    pageCtrl = [self requireViewControllerForIndex:index];
     [_delegate pageController:self prepareViewController:pageCtrl withObject:[_arrangedObjects objectAtIndex:index]];
 
     // store viewcontroller
     [_pages replaceObjectAtIndex:index withObject:pageCtrl];
+    
     
     // add views to container
     dispatch_async(dispatch_get_main_queue(), ^{
