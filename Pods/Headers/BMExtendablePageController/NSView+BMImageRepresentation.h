@@ -1,1 +1,1 @@
-../../BMExtendablePageController/BMExtendablePageController/NSView+BMImageRepresentation.h
+../../../../BMExtPageController/BMExtendablePageController/NSView+BMImageRepresentation.h

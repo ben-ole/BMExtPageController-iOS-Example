@@ -39,6 +39,7 @@
 		437FDA2D1739775500ACAFD0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		437FDA2F1739775500ACAFD0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		437FDA361739779700ACAFD0 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		43B0A0F91758EEBF00C08C38 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		43C96566173A9EA300D9C59A /* BMTest01ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTest01ViewController.h; sourceTree = "<group>"; };
 		43C96567173A9EA300D9C59A /* BMTest01ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTest01ViewController.m; sourceTree = "<group>"; };
 		43C96569173A9F3A00D9C59A /* BMTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTestTableViewController.h; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		437FDA0D1739775500ACAFD0 = {
 			isa = PBXGroup;
 			children = (
+				43B0A0F91758EEBF00C08C38 /* CoreImage.framework */,
 				437FDA1F1739775500ACAFD0 /* BMExtPageControllerExampleIOS */,
 				437FDA181739775500ACAFD0 /* Frameworks */,
 				437FDA171739775500ACAFD0 /* Products */,

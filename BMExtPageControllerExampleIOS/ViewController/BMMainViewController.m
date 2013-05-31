@@ -12,9 +12,10 @@
 #import <BMExtendablePageController/BMHorizontalFlipTransition.h>
 #import <BMExtendablePageController/BMFadeTransition.h>
 #import <BMExtendablePageController/BMHorizontalCTransition.h>
+#import <BMExtendablePageController/BMCoreImageTransition.h>
 
 @implementation BMMainViewController{
-    id<BMExtendableContinuousePageTransition> _currentTransition;
+    id<BMExtendableContinuousPageTransition> _currentTransition;
 }
 
 #pragma mark - VIEW STUFF
@@ -63,12 +64,23 @@
 
 // Basic Transition
 - (IBAction)forwardHandler:(id)sender {
-    [_pageController nextPageWithTransitionStyle:[BMHorizontalFlipTransition transition]];
+    [_pageController nextPageWithTransitionStyle:[BMHorizontalFlipTransition transitionWithDuration:1.0]];
 //    [_pageController nextPageWithTransitionStyle:[BMFadeTransition transition]];
 }
 
 - (IBAction)backwardsHandler:(id)sender {
-    [_pageController prevPageWithTransitionStyle:[BMHorizontalFlipTransition transition]];
+//    CATransition* transition = [CATransition animation];
+//    transition.type = kCATransitionMoveIn;
+//    transition.subtype = kCATransitionFromBottom;
+//    transition.duration = 1.0;
+//    transition.removedOnCompletion = YES;
+//    
+//    [_pageController prevPageWithTransitionStyle:[BMCoreImageTransition transitionWithCATransition:transition]];
+    
+    // Don't use this - it's fun, but private API
+    [_pageController prevPageWithTransitionStyle:[BMCoreImageTransition transitionWithCATransition:[BMCoreImageTransition ribbleTransitionWithRect:self.view.bounds] inDuration:1.0]];
+    
+//    [_pageController prevPageWithTransitionStyle:[BMHorizontalFlipTransition transition]];
 }
 
 // Continuous Transition Part
@@ -78,7 +90,7 @@
 }
 
 - (IBAction)sliderBeginEditingHandler:(UISlider *)sender {
-    _currentTransition = [_pageController attachContinuouseTransition:[BMHorizontalCTransition transition]];
+    _currentTransition = [_pageController attachContinuousTransition:[BMHorizontalCTransition transition]];
 }
 
 - (IBAction)sliderEndEditingHandler:(UISlider *)sender {
